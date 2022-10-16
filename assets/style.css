@@ -6,3 +6,25 @@
     padding: 0;
     margin: 0;
 }
+
+.header{
+    width: 100%;
+}
+
+.header h1{
+    font-size: 50px;
+    text-align: center;
+    margin: 100px;
+}
+
+.intro{
+    display: flex;
+    width: 80%;
+    justify-content: center;
+}
+
+.table{
+    display: flex;
+    justify-content: flex-end;
+    margin: 100px;
+}
