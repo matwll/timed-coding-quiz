@@ -43,9 +43,10 @@ section {
     font-size: 80px;
     padding: 20px;
     margin: -200px 60px;
-    border: 3px solid;
+    border: 3px double;
     width: fit-content;
     float: right;
+    border-radius: 75px;
 }
 #timer::after{
     clear: both;
