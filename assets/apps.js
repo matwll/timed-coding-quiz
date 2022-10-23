@@ -9,7 +9,7 @@ var mainPage = document.querySelector('.intro');
 //create test question variables and timer
 var testQuestions = [
     {
-        questionText: "Which of these will print 'Hello World' to the screen",
+        questionText: "Which of these will print 'Hello World' to the screen?",
         options:
         ["a: alert('Hello World')",
         "b: print('Hello World')",
@@ -27,7 +27,7 @@ var testQuestions = [
         correctAnswer: 2,
     },
     {
-        questionText: "Which of these options can be used to select all of an element from the HTML",
+        questionText: "Which of these options can be used to select all of an element from the HTML?",
         options:
             ["a: document.query()",
             "b: document.getElement()",
@@ -35,55 +35,56 @@ var testQuestions = [
             "d: document.querySelectorAll()"],
         correctAnswer: 3,
     },
-    // {
-    //     questionText: "",
-    //     a: "",
-    //     b: "",
-    //     c: "",
-    //     d: ""
-    // },
-    // {
-    //     questionText: "",
-    //     a: "",
-    //     b: "",
-    //     c: "",
-    //     d: ""
-    // },
-    // {
-    //     questionText: "",
-    //     a: "",
-    //     b: "",
-    //     c: "",
-    //     d: ""
-    // },
-    // {
-    //     questionText: "",
-    //     a: "",
-    //     b: "",
-    //     c: "",
-    //     d: ""
-    // },
-    // {
-    //     questionText: "",
-    //     a: "",
-    //     b: "",
-    //     c: "",
-    //     d: ""
-    // },
-    // {
-    //     questionText: "",
-    //     a: "",
-    //     b: "",
-    //     c: "",
-    //     d: ""
-    // },
-    // {
-    //     questionText: "",
-    //     a: "",
-    //     b: "",
-    //     c: "",
-    //     d: ""
-    // },
+    {
+        questionText: "To create a div and add it to the document. You would use which of the following?",
+        options:
+        ["a: var divEl = document.createElement(div) , and body.appendChild(divEl)",
+        "b: var divEl = document.createElement('div') , and body.appendChild(divEl)",
+        "c: document.createElement('div').appendChild('body');",
+        "d: divEl = document.createElement('div') , and body.appendChild(divEl)"],
+        correctAnswer: 1,
+    },
+    {
+        questionText: "True or False. Is javascript primarily used to adjust your webpages display?",
+        options:
+        ["a: True",
+        "b: False"],
+        correctAnswer: 0,
+    },
+    {
+        questionText: "Which type of declared variable takes precendence if they have the same name?",
+        options:
+        ["a: global variable",
+        "b: local variable",
+        "c: both are the same",
+        "d: none of the above"],
+        correctAnswer: 1,
+    },
+    {
+        questionText: "What is the first value in an array?",
+        options:
+        ["a: -1",
+        "b: 1",
+        "c: 0",
+        "d: None of the above"],
+        correctAnswer: 2,
+    },
+    {
+        questionText: "True or False. To use an event it must be named event?",
+        options:
+        ["a: True",
+        "b: False"],
+        correctAnswer: 1,
+    },
+    {
+        questionText: "Which of these methods will add an item to the beginning of an array?",
+        options:
+        ["a: shift",
+        "b: unshift",
+        "c: pop",
+        "d: push"],
+        correctAnswer: 1,
+    },
 ];
 var timer = 60;
 var currentQuestion = 0;
@@ -165,6 +166,6 @@ function endQuiz (){
     document.querySelector('.table').classList.remove('hidden');
     clearInterval(timeLeft);
     var usersInitials = prompt('Enter your initials');
-    initials.innerText = usersInitials;
+    initials = usersInitials;
     storeHs();
 }
