@@ -89,7 +89,7 @@ var timer = 60;
 var currentQuestion = 0;
 var timeLeft;
 var score = 0;
-
+var initials = "";
 
 //event listener to start the quiz when button is clicked
 test.addEventListener('click', runTest);
@@ -109,7 +109,6 @@ function runTest(){
 
             clearInterval(timeLeft);
             countdown.textContent = 0;
-            usersInitials = prompt('Enter your initials');
 
             //add initials and score to high score table and local storage
             function scoreAdd(){}
@@ -153,6 +152,11 @@ function displayQuestion(){
     }
 }
 
+function storeHs(){
+    localStorage.setItem('initials', initials);
+    localStorage.setItem('score', score);
+}
+
 
 //function to stop timer, display main page, and hide quiz questions
 function endQuiz (){
@@ -160,4 +164,7 @@ function endQuiz (){
     mainPage.classList.remove('hidden');
     document.querySelector('.table').classList.remove('hidden');
     clearInterval(timeLeft);
+    var usersInitials = prompt('Enter your initials');
+    initials.innerText = usersInitials;
+    storeHs();
 }
