@@ -6,7 +6,7 @@ var highScore = document.querySelector('.table');
 var questionContainer = document.getElementById('question-container');
 var mainPage = document.querySelector('.intro');
 
-//create test question variables and timer
+//variables to store values from the functions as well as the list of test questions and answers
 var testQuestions = [
     {
         questionText: "Which of these will print 'Hello World' to the screen?",
@@ -90,12 +90,12 @@ var timer = 60;
 var currentQuestion = 0;
 var timeLeft;
 var score = 0;
-var initials = "";
+var initials;
 
 //event listener to start the quiz when button is clicked
 test.addEventListener('click', runTest);
 
-//main function to run the test
+//main function to run the test probably should have named it init.
 function runTest(){
 
     mainPage.classList.add('hidden');
@@ -105,15 +105,11 @@ function runTest(){
         timer--;
         countdown.textContent = timer;
 
-            //if out of time end test and pop up for initials and HS entry
+            //if out of time end test and display promt for initials and HS entry
         if (timer < 0){
 
             clearInterval(timeLeft);
             countdown.textContent = 0;
-
-            //add initials and score to high score table and local storage
-            function scoreAdd(){}
-
         }
     }, 1000);
     displayQuestion();
