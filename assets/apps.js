@@ -4,6 +4,7 @@ var testStart = document.querySelectorAll('.start');
 var countdown = document.querySelector('#timer');
 var highScore = document.querySelector('.table');
 var questionContainer = document.getElementById('question-container');
+var mainPage = document.querySelector('.intro');
 
 //create test question variables and timer
 var testQuestions = [
@@ -84,9 +85,10 @@ var testQuestions = [
     //     d: ""
     // },
 ];
-var timer = 5;
+var timer = 60;
 var currentQuestion = 0;
 var timeLeft;
+var score = 0;
 
 
 //event listener to start the quiz when button is clicked
@@ -94,6 +96,9 @@ test.addEventListener('click', runTest);
 
 //main function to run the test
 function runTest(){
+
+    mainPage.classList.add('hidden');
+    document.querySelector('.table').classList.add('hidden');
 
     timeLeft = setInterval(function(){
         timer--;
@@ -107,8 +112,7 @@ function runTest(){
             usersInitials = prompt('Enter your initials');
 
             //add initials and score to high score table and local storage
-            // var table = document.createElement('tr');
-            // var  = document.createElement('th');
+            function scoreAdd(){}
 
         }
     }, 1000);
@@ -126,12 +130,12 @@ function displayQuestion(){
         var testBtn = document.createElement('button');
         testBtn.dataset.choice = i;
         testBtn.innerText = q.options[i];
+        testBtn.classList.add('test', 'col-12');
         testBtn.addEventListener('click', (event)=>{
             //check if choice matches answer
             if(event.target.dataset.choice == q.correctAnswer){
-                console.log('correct');
+                score++;
             }else{
-                console.log('wrong');
                 timer -= 10;
                 if(timer <= 0){
                   endQuiz();  
@@ -149,7 +153,11 @@ function displayQuestion(){
     }
 }
 
+
+//function to stop timer, display main page, and hide quiz questions
 function endQuiz (){
-    questionContainer.innerHTML = "finished";
+    questionContainer.classList.add('hidden');
+    mainPage.classList.remove('hidden');
+    document.querySelector('.table').classList.remove('hidden');
     clearInterval(timeLeft);
 }

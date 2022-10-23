@@ -39,6 +39,11 @@ section {
     display: none;
 }
 
+.test {
+    display: block;
+    margin-top: 10px;
+}
+
 #timer {
     font-size: 80px;
     padding: 20px;
