@@ -101,8 +101,9 @@ function runTest(){
     //need something here to act like a reset
 
 
+    //hide main page
     mainPage.classList.add('hidden');
-    document.querySelector('.table').classList.add('hidden');
+    highScore.classList.add('hidden');
 
     timeLeft = setInterval(function(){
         timer--;
@@ -165,7 +166,6 @@ function storeHs(){
     localStorage.setItem('score', score);
 }
 
-
 //function to stop timer, display main page, and hide quiz questions
 function endQuiz (){
     questionContainer.classList.add('hidden');
@@ -173,8 +173,6 @@ function endQuiz (){
     clearInterval(timeLeft);
     var userInitials = document.getElementById('user-initials').value;
     initials = userInitials.toUpperCase();
-
-
 
     infoEl.addEventListener('submit', function(event){
         event.preventDefault();
