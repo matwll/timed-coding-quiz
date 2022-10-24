@@ -150,6 +150,15 @@ function displayQuestion(){
 }
 
 function storeHs(){
+    //create and display the score and initials
+    var initialsEl = document.createElement('th')
+    initialsEl.textContent = initials;
+    document.querySelector('.score1').appendChild(initialsEl);
+    var scoreEl = document.createElement('th')
+    scoreEl.textContent = score;
+    document.querySelector('.score1').appendChild(scoreEl);
+
+    //save scores and initials to local storage
     localStorage.setItem('initials', initials);
     localStorage.setItem('score', score);
 }
