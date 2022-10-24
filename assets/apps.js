@@ -5,6 +5,7 @@ var countdown = document.querySelector('#timer');
 var highScore = document.querySelector('.table');
 var questionContainer = document.getElementById('question-container');
 var mainPage = document.querySelector('.intro');
+var infoEl = document.querySelector('.info');
 
 //variables to store values from the functions as well as the list of test questions and answers
 var testQuestions = [
@@ -97,6 +98,8 @@ test.addEventListener('click', runTest);
 
 //main function to run the test probably should have named it init.
 function runTest(){
+    //need something here to act like a reset
+
 
     mainPage.classList.add('hidden');
     document.querySelector('.table').classList.add('hidden');
@@ -105,9 +108,8 @@ function runTest(){
         timer--;
         countdown.textContent = timer;
 
-            //if out of time end test and display promt for initials and HS entry
+            //if out of time end test and display prompt for initials and HS entry
         if (timer < 0){
-
             clearInterval(timeLeft);
             countdown.textContent = 0;
         }
@@ -153,10 +155,10 @@ function storeHs(){
     //create and display the score and initials
     var initialsEl = document.createElement('th')
     initialsEl.textContent = initials;
-    document.querySelector('.score1').appendChild(initialsEl);
+    document.querySelector('.score').appendChild(initialsEl);
     var scoreEl = document.createElement('th')
     scoreEl.textContent = score;
-    document.querySelector('.score1').appendChild(scoreEl);
+    document.querySelector('.score').appendChild(scoreEl);
 
     //save scores and initials to local storage
     localStorage.setItem('initials', initials);
@@ -167,10 +169,18 @@ function storeHs(){
 //function to stop timer, display main page, and hide quiz questions
 function endQuiz (){
     questionContainer.classList.add('hidden');
-    mainPage.classList.remove('hidden');
-    document.querySelector('.table').classList.remove('hidden');
+    infoEl.classList.remove('hidden');
     clearInterval(timeLeft);
-    var usersInitials = prompt('Enter your initials');
-    initials = usersInitials;
+    var userInitials = document.getElementById('user-initials').value;
+    initials = userInitials.toUpperCase();
+
+
+
+    infoEl.addEventListener('submit', function(event){
+        event.preventDefault();
+        mainPage.classList.remove('hidden');
+        infoEl.classList.add('hidden');
+        document.querySelector('.table').classList.remove('hidden');
+    })
     storeHs();
 }
