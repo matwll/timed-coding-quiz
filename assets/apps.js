@@ -99,7 +99,8 @@ test.addEventListener('click', runTest);
 //main function to run the test probably should have named it init.
 function runTest(){
     //need something here to act like a reset
-
+    timer = 60;
+    questionContainer.classList.remove('hidden');
 
     //hide main page
     mainPage.classList.add('hidden');
@@ -137,7 +138,7 @@ function displayQuestion(){
             }else{
                 timer -= 10;
                 if(timer <= 0){
-                  endQuiz();  
+                  endQuiz();
                 }
             }
             //move on to next question
@@ -164,6 +165,7 @@ function storeHs(){
     //save scores and initials to local storage
     localStorage.setItem('initials', initials);
     localStorage.setItem('score', score);
+    
 }
 
 //function to stop timer, display main page, and hide quiz questions
